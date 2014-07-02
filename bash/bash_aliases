@@ -1,0 +1,56 @@
+#!/bin/bash
+
+
+# ------------------------------------------------------------------------------
+# | Navigation                                                                 |
+# ------------------------------------------------------------------------------
+
+alias ~="cd ~"
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias cd..="cd .."
+
+
+# ------------------------------------------------------------------------------
+# | Package Managers                                                           |
+# ------------------------------------------------------------------------------
+
+alias apti="sudo apt-get install"
+alias aptr="sudo apt-get remove"
+alias apts="sudo apt-cache search"
+alias aptu="sudo apt-get update && \
+            sudo apt-get upgrade"
+alias update="aptu"
+
+
+# ------------------------------------------------------------------------------
+# | Shorter Commands                                                           |
+# ------------------------------------------------------------------------------
+
+alias c="clear"
+alias ch="history -c && > ~/.bash_history"
+alias e="vim"
+alias g="git"
+alias ll="ls -l"
+alias m="man"
+alias map="xargs -n1"
+alias q="exit"
+alias :q="exit"
+alias rm="rm -rf"
+
+# OS / OS distribution specific commands
+
+    # Copy to clipboard
+    alias cc="xclip -selection clip"
+
+    # Hide/Show desktop icons
+    alias hidedesktopicons="gsettings set org.gnome.desktop.background show-desktop-icons false"
+    alias showdesktopicons="gsettings set org.gnome.desktop.background show-desktop-icons true"
+
+    # Open
+    alias o="xdg-open"
+
+    # Restart Apache
+    alias ra="sudo /etc/init.d/apache2 restart"

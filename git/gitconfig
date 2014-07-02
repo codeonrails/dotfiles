@@ -1,0 +1,136 @@
+[user]
+	email = codeonrails@gmail.com
+	name = Vagner Rodrigues
+
+[github]
+  user = codeonrails
+
+[core]
+  autocrlf = input
+  editor = vim
+  pager = less -R
+	attributesfile = ~/.gitattributes
+	excludesfile = ~/.gitignore
+
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  ui = auto
+
+[color]
+  branch = auto
+  diff = auto
+  status = always
+
+[color "branch"]
+  current = cyan bold
+  local = yellow
+  remote = green
+
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+
+[pretty]
+  # Custom log output
+  custom = "%C(magenta)%h%C(red)%d %C(yellow)%ar %C(green)%s %C(yellow)(%an)"
+  #                     │        │            │            │  author name ┘
+  #                     │        │            │            └─ message
+  #                     │        │            └─ date (relative)
+  #                     │        └─ decorations (branch, heads or tags)
+  #
+
+[alias]
+
+	#add
+  aa = add --all                    #
+  ap = add --patch                  #
+
+	# checkout
+  co = checkout                     #
+  cb = checkout -b                  # create and switch to a new branch (mnemonic: "git new branch branchname...")
+
+  # commit
+	ct = commit                       # commit
+	ca = commit -m                    # commit with message
+	cv = commit -v
+	cd = commit --amend               # ammend your last commit
+
+  #status
+	st = status -sb
+
+	#branch
+  br = branch -v                    # branch (verbose)
+  create-branch = !sh -c 'git push origin HEAD:refs/heads/$1 && git fetch origin && git branch --track $1 origin/$1 && cd . && git checkout $1' -
+  delete-branch = !sh -c 'git push origin :refs/heads/$1 && git branch -D $1' -
+  merge-branch = !git checkout master && git merge @{-1}
+
+  # diff
+  df = diff                         # diff unstaged changes
+  dc = diff --cached                # diff staged changes
+  dl = diff HEAD^                   # diff last committed change
+
+  # log
+  lg = log --graph --date=short]
+  lc = log ORIG_HEAD.. --stat --no-merges
+  changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
+  short = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
+  simple = log --pretty=format:\" * %s\"
+  shortnocolor = log --pretty=format:\"%h %cr %cn %s\"
+
+  # pull
+  pl = pull                         # pull
+
+  # push
+  ps = push                         # push
+
+  # rebase
+  rc = rebase --continue            # continue rebase
+  rs = rebase --skip                # skip rebase
+
+  # remote
+  rt = remote -v                    # show remotes (verbose)
+
+  # reset
+  unstage = reset HEAD              # remove files from index (tracking)
+  uncommit = reset --soft HEAD^     # go back before last commit, with files in uncommitted state
+  filelog = log -u                  # show changes to a file
+  mt = mergetool                    # fire up the merge tool
+
+	# stash
+  ss = stash                        # stash changes
+  sl = stash list                   # list stashes
+  sa = stash apply                  # apply stash (restore changes)
+  sd = stash drop                   # drop stashes (destory changes)
+
+  # forced synchro
+  get = !git pull && git submodule update --init --recursive
+  put = !git commit -am "$1" && git push
+
+  # undo aliases
+  undo = !git reset --hard
+  undoclean = !git reset --hard && git clean -fd
+  uncommit = !git reset --soft HEAD^
+  unadd = !git reset HEAD
+  unstage = !git reset HEAD
+
+[help]
+  autocorrect = 1
+  format = man
+
+[sendemail]
+  smtpencryption = tls
+  smtpserver = smtp.gmail.com
+  smtpuser = codeonrails@gmail.com
+  smtpserverport = 587
+  chainreplyto = false
+  aliasesfile = /home/vagner/.gitaliases
+  aliasfiletype = mailrc
